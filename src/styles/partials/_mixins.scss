@@ -1,0 +1,83 @@
+@use "./typography" as *;
+@use "./variables" as *;
+
+@mixin font-properties($text-size, $line-height) {
+  font-size: $text-size;
+  line-height: $line-height;
+  @content;
+}
+
+@mixin font-tablet-body-properties {
+  @include font-properties(14px, 22px);
+  @content;
+}
+
+
+// mixins for avatars
+@mixin avatarMobile {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  @content;
+}
+
+@mixin avatarLarge {
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+}
+
+// mixins for media queries
+
+@mixin mobile {
+  @media (min-width:320px) and (max-width: $mobile-endpoint){
+    @content;
+  }
+}
+
+@mixin tablets {
+  @media (max-width: $tablet-breakpoint) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+// font face mixins
+
+@mixin font-family-normal {
+  font-family: "Avenir", "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-style: normal;
+  @content;
+}
+
+@mixin font-family-bold {
+  font-family: "Avenir", "Times New Roman", Times, serif;
+  font-weight: 600;
+  font-style: normal;
+  @content;
+}
+
+@mixin font-family-bolder {
+  font-family: "Avenir", "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-style: normal;
+  @content;
+}
+
+@mixin tabletnav {
+  @media (min-width: 768px) {
+      @content;
+  }
+}
+
+@mixin desktopnav {
+  @media (min-width: 1280px) {
+      @content;
+  }
+}

@@ -1,0 +1,191 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 1rem;
+  border-top: 0.0625rem solid $brainflix-mercury;
+  animation: 0.8s ease-out 0s 1 slideFromBottom;
+
+  @include desktopnav {
+    padding: 0 10rem 10rem;
+  }
+  &__header {
+    @include font-properties(
+      $font-size-DT-page-header,
+      $line-height-DT-page-header
+    );
+    @include font-family-bold;
+    padding: 2rem 0;
+    text-align: justify;
+    @include tabletnav {
+      padding: 2rem 0;
+
+      border-bottom: 2px solid $brainflix-mercury;
+    }
+  }
+}
+
+.inner-load {
+  @include tabletnav {
+    padding: 2rem;
+  }
+  @include desktopnav {
+    display: flex;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  @include desktopnav {
+    flex-grow: 3;
+    position: relative;
+    bottom: 1rem;
+  }
+  &-left {
+    @include tabletnav {
+      max-width: 50%;
+    }
+    @include desktopnav {
+      max-width: 36%;
+    }
+    &-img-wrapper {
+      overflow: hidden;
+      max-height: auto;
+      width: 112%;
+      border-radius: 4px;
+      @include desktopnav {
+        min-height: 12.7rem;
+      }
+    }
+    &__description {
+      @include font-properties(
+        $font-size-DT-label-btn,
+        $line-height-DT-label-btn
+      );
+      color: $brainflix-silver;
+      @include font-family-normal;
+    }
+    &__img {
+      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 4px;
+      @include desktopnav {
+        height: 12.7rem;
+      }
+    }
+  }
+
+  &-one {
+    display: flex;
+    flex-direction: column;
+    @include desktopnav {
+      flex-direction: row;
+    }
+  }
+
+  &-right {
+    display: flex;
+    flex-direction: column;
+    @include desktopnav {
+      min-width: 70%;
+      position: relative;
+      bottom: 1rem;
+      padding-left: 3rem;
+    }
+  }
+
+  &__label {
+    @include font-properties(
+      $font-size-DT-label-btn,
+      $line-height-DT-label-btn
+    );
+    color: $brainflix-silver;
+    padding-top: 1rem;
+    @include font-family-normal;
+  }
+
+  &__input {
+    background-color: $brainflix-alabaster;
+    border-radius: 4px;
+    border: 1px solid $brainflix-mercury;
+    height: 2.5rem;
+    padding-left: 1rem;
+    @include font-family-normal;
+    @include desktopnav {
+    }
+    &:focus {
+      outline: none;
+      border: 2px solid $brainflix-blue;
+    }
+    &::placeholder {
+      color: $brainflix-black;
+    }
+  }
+
+  &__text-area {
+    background-color: $brainflix-alabaster;
+    border-radius: 4px;
+    border: 1px solid $brainflix-mercury;
+    resize: none;
+    height: 8rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    @include font-family-normal;
+    @include tabletnav {
+      margin-bottom: 2rem;
+    }
+    &:focus {
+      outline: none;
+      border: 2px solid $brainflix-blue;
+    }
+    &::placeholder {
+      color: $brainflix-black;
+    }
+  }
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  align-items: center;
+  @include tabletnav {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+
+    border-top: 2px solid $brainflix-mercury;
+  }
+  &__publish {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 8px;
+    padding: 1rem 1rem;
+    background-color: $brainflix-blue;
+    color: $brainflix-white;
+    border: none;
+    gap: 1.125rem;
+    @include mobile {
+      gap: 5.125rem;
+      width: 18rem;
+    }
+  }
+  &__cancel {
+    background-color: $brainflix-white;
+    color: $brainflix-blue;
+    padding: 1rem 0;
+    border: none;
+    font-size: $font-size-DT-label-btn;
+    font-weight: 700;
+    line-height: $line-height-DT-label-btn;
+    @include tabletnav {
+      min-width: 10rem;
+    }
+  }
+}

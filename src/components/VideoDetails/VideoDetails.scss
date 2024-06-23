@@ -1,0 +1,151 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+
+.hero {
+  &__container {
+    display: flex;
+    padding: 0rem 7rem;
+
+    @media (max-width: $mobile-endpoint) {
+      flex-direction: column;
+      padding: 1.25rem;
+    }
+
+    h1 {
+      @include font-properties(
+        $font-size-DT-page-header,
+        $line-height-DT-page-header
+      );
+      @include font-family-bolder;
+      color: $brainflix-black;
+      padding-top: 1.5rem;
+      @media (max-width: $mobile-endpoint) {
+        @include font-properties(
+          $font-size-mob-page-header,
+          $line-height-mob-page-header
+        );
+        border-bottom: 2px solid $brainflix-mercury;
+        padding-bottom: 1rem;
+        padding-top: 0rem;
+      }
+    }
+
+    &--left {
+      &--author {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1rem;
+        border-bottom: 2px solid $brainflix-mercury;
+        width: 100%;
+
+        img {
+          padding-right: 0.3125rem;
+        }
+
+        @media (max-width: $mobile-endpoint) {
+          gap: 0.625rem;
+          padding-bottom: 1rem;
+        }
+
+        &--name {
+          display: flex;
+          width: 35%;
+          gap: 1rem;
+
+          @media (max-width: $mobile-endpoint) {
+            width: 100%;
+            flex-direction: column;
+          }
+
+          h5 {
+            @include font-properties($font-size-DT-body, $line-height-DT-body);
+            @include font-family-bold;
+            color: $brainflix-black;
+          }
+
+          p {
+            @include font-properties($font-size-DT-body, $line-height-DT-body);
+            @include font-family-normal;
+            color: $brainflix-silver;
+          }
+        }
+
+        &--preview {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          margin-right: 1rem;
+
+          span {
+            @include font-properties($font-size-DT-body, $line-height-DT-body);
+            @include font-family-normal;
+            color: $brainflix-silver;
+            display: flex;
+            align-items: center;
+          }
+
+          @media (max-width: $mobile-endpoint) {
+            width: 100%;
+            flex-direction: column;
+          }
+        }
+      }
+
+      &--para {
+        @include font-properties($font-size-DT-body, $line-height-DT-body);
+        @include font-family-normal;
+        margin-top: 1rem;
+
+        @media (max-width: $mobile-endpoint) {
+          @include font-properties($font-size-mob-body, $line-height-mob-body);
+        }
+      }
+    }
+  }
+
+  @media (min-width: $tablet-breakpoint) and (max-width: 1279px) {
+    width: 100vw;
+    height: 100vh;
+
+    &__img {
+      height: auto;
+      width: 100%;
+
+      video {
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &--play {
+        margin-top: 15.625rem;
+      }
+    }
+
+    &__container {
+      flex-direction: column;
+      padding: 0 1.5rem;
+
+      h1 {
+        padding-top: 2.25rem;
+      }
+
+      &--left {
+        width: 100%;
+
+        &--author {
+          padding-top: 0.5rem;
+        }
+
+        &--para {
+          width: 100%;
+          @include font-properties(
+            $font-size-DT-sub-header,
+            $line-height-DT-sub-header
+          );
+        }
+      }
+    }
+  }
+}
