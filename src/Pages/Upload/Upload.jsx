@@ -25,7 +25,7 @@ function Upload() {
     };
 
     try {
-      await axios.post("http://localhost:8080/videos", uploadVideo);
+      await axios.post("https://brainflix-backend-bvod.onrender.com/videos", uploadVideo);
       alert("Video uploaded successfully");
       navigate("/");
     } catch (error) {

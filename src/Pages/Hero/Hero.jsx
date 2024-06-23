@@ -23,10 +23,10 @@ const Hero = ({ nextvideoDetails, setNextVideoDetails, videoData, setVideoData }
       year: 'numeric',
     });
   };
-
+ 
   const getVideoDetails = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:8080/videos/${id}`);
+      const res = await axios.get(` https://brainflix-backend-bvod.onrender.com/videos/${id}`);
       return res.data;
     } catch (error) {
       console.log('Error fetching video details:', error);
@@ -36,7 +36,7 @@ const Hero = ({ nextvideoDetails, setNextVideoDetails, videoData, setVideoData }
 
   const getNextVideo = async () => {
     try {
-      const res = await axios.get(`http://localhost:8080/videos`);
+      const res = await axios.get(` https://brainflix-backend-bvod.onrender.com/videos`);
       return res.data;
     } catch (error) {
       console.log('Error fetching next videos:', error);
